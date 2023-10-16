@@ -1,0 +1,184 @@
+{
+  "products": [
+    {
+      "name": "Organic Avocado",
+      "description": "Freshly picked and organic avocado",
+      "price": 2.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wild Alaskan Salmon",
+      "description": "Sustainably caught Wild Alaskan Salmon",
+      "price": 12.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Blueberries",
+      "description": "Freshly picked and organic blueberries",
+      "price": 3.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Grass-fed Beef",
+      "description": "Grass-fed and organic beef",
+      "price": 18.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Fresh Sourdough Bread",
+      "description": "Freshly baked organic sourdough bread",
+      "price": 5.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Lemons",
+      "description": "Freshly picked and organic lemons",
+      "price": 1.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wildflower Honey",
+      "description": "Locally sourced wildflower honey",
+      "price": 7.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Kale",
+      "description": "Freshly picked and organic kale",
+      "price": 2.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Fresh Mozzarella Cheese",
+      "description": "Freshly made mozzarella cheese",
+      "price": 8.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Cherry Tomatoes",
+      "description": "Freshly picked and organic cherry tomatoes",
+      "price": 3.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wild-caught Shrimp",
+      "description": "Sustainably caught wild-caught shrimp",
+      "price": 14.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Baby Carrots",
+      "description": "Freshly picked and organic baby carrots",
+      "price": 2.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Freshly Brewed Coffee",
+      "description": "Freshly brewed organic coffee",
+      "price": 4.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Red Bell Peppers",
+      "description": "Freshly picked and organic red bell peppers",
+      "price": 2.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wild-caught Cod",
+      "description": "Sustainably caught wild-caught cod",
+      "price": 13.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Freshly Squeezed Orange Juice",
+      "description": "Freshly squeezed organic orange juice",
+      "price": 6.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Broccoli",
+      "description": "Freshly picked and organic broccoli",
+      "price": 3.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Artisanal Goat Cheese",
+      "description": "Handcrafted artisanal goat cheese",
+      "price": 9.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Apples",
+      "description": "Freshly picked and organic apples",
+      "price": 2.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wild-caught Scallops",
+      "description": "Sustainably caught wild-caught scallops",
+      "price": 22.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Baby Spinach",
+      "description": "Freshly picked and organic baby spinach",
+      "price": 2.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Aged Cheddar Cheese",
+      "description": "Aged organic cheddar cheese",
+      "price": 11.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Red Grapes",
+      "description": "Freshly picked and organic red grapes",
+      "price": 4.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wild-caught Tuna",
+      "description": "Sustainably caught wild-caught tuna",
+      "price": 19.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Bok Choy",
+      "description": "Freshly picked and organic bok choy",
+      "price": 3.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Freshly Made Pesto",
+      "description": "Freshly made organic pesto",
+      "price": 7.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Raspberries",
+      "description": "Freshly picked and organic raspberries",
+      "price": 4.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Wild-caught Halibut",
+      "description": "Sustainably caught wild-caught halibut",
+      "price": 17.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Organic Sweet Potatoes",
+      "description": "Freshly picked and organic sweet potatoes",
+      "price": 3.99,
+      "imageUrl": ""
+    },
+    {
+      "name": "Premium Extra Virgin Olive Oil",
+      "description": "Premium extra virgin organic olive oil",
+      "price": 13.99,
+      "imageUrl": ""
+    }
+  ]
+}

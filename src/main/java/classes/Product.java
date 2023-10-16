@@ -2,32 +2,47 @@ package classes;
 
 public class Product {
     private String name;
-    private String desctiption;
-    private String price;
+    private String description;
+    private float price;
+    private String imageUrl;
 
-    public Product(String name, String desctiption, String price) {
+    public Product(String name, String description, float price, String imageUrl) {
         this.name = name;
-        this.desctiption = desctiption;
+        this.description = description;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
         return name;
     }
-    public String getDesctiption() {
-        return desctiption;
+    public String getDescription() {
+        return description;
     }
-    public String getPrice() {
+    public float getPrice() {
         return price;
+    }
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-    public void setDesctiption(String desctiption) {
-        this.desctiption = desctiption;
+    public void setDesctiption(String description) {
+        this.description = description;
     }
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void printProductInfo() {
+        System.out.println(this.name);
+        System.out.println(this.description);
+        System.out.println(this.price);
+        System.out.println(this.imageUrl);
     }
 }
