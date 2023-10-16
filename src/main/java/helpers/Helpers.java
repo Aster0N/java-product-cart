@@ -13,8 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Helpers {
     public static void fillProductList(List<Product> list) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-//        File jsonFile = new File("productList.json");
-//        JsonNode rootNode = objectMapper.readTree(jsonFile);
 
         InputStream jsonStream = Helpers.class.getClassLoader().getResourceAsStream("productList.json");
         JsonNode rootNode = objectMapper.readTree(jsonStream);

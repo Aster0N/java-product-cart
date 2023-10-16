@@ -24,9 +24,13 @@
         gap: 10px;
     }
     .card {
-        width: 350px;
+        width: 300px;
         padding: 10px;
         border: 1px solid grey;
+    }
+    .product-image {
+        width: 150px;
+        margin: 0 auto;
     }
     </style>
 </head>
@@ -37,7 +41,7 @@
     <div class="cards-wrapper">
         <c:forEach var="product" items="${productList}">
            <div class="card">
-                <img src="${product.getImageUrl()}" alt="${product.getName()}">
+                <img class="product-image" src="${product.getImageUrl()}" alt="${product.getName()}">
                 <h2>${product.getName()}</h2>
                 <p>${product.getDescription()}</p>
                 <p><strong>Price: </strong>${product.getPrice()}</p>
