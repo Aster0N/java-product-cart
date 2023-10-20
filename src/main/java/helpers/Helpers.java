@@ -17,16 +17,14 @@ public class Helpers {
         InputStream jsonStream = Helpers.class.getClassLoader().getResourceAsStream("productList.json");
         JsonNode rootNode = objectMapper.readTree(jsonStream);
 
-
         JsonNode productsNode = rootNode.get("products");
         if (productsNode.isArray()) {
             for (JsonNode productNode : productsNode) {
                 String name = productNode.get("name").asText();
                 String description = productNode.get("description").asText  ();
                 float price = (float) productNode.get("price").asDouble();
-                String imageUrl = productNode.get("imageUrl").asText();
 
-                Product product = new Product(name, description, price, imageUrl);
+                Product product = new Product(name, description, price);
                 list.add(product);
             }
         }

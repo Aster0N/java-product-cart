@@ -29,12 +29,8 @@
         border: 1px solid grey;
         display: flex;
         flex-direction: column;
+        gap: 15px;
         justify-content: space-between;
-    }
-    .product-image {
-        height: 180px;
-        display: block;
-        margin: 0 auto;
     }
     </style>
 </head>
