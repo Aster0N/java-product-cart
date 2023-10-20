@@ -19,7 +19,7 @@
     }
     .cards-wrapper {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 10px;
     }
@@ -27,24 +27,29 @@
         width: 300px;
         padding: 10px;
         border: 1px solid grey;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .product-image {
-        width: 150px;
+        height: 180px;
+        display: block;
         margin: 0 auto;
     }
     </style>
 </head>
 <body>
     <h1>Home page</h1>
-    <a href="/app/login">login</a>
-
     <div class="cards-wrapper">
         <c:forEach var="product" items="${productList}">
            <div class="card">
-                <img class="product-image" src="${product.getImageUrl()}" alt="${product.getName()}">
-                <h2>${product.getName()}</h2>
-                <p>${product.getDescription()}</p>
-                <p><strong>Price: </strong>${product.getPrice()}</p>
+                <div class="card-info">
+                    <h2>${product.getName()}</h2>
+                    <p>${product.getDescription()}</p>
+                </div>
+                <div class="card-price">
+                    <p><strong>Price: </strong>${product.getPrice()}</p>
+                </div>
             </div>
         </c:forEach>
     </div>

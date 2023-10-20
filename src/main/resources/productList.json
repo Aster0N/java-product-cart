@@ -3,122 +3,102 @@
     {
       "name": "Organic Avocado",
       "description": "Freshly picked and organic avocado",
-      "price": 2.99,
-      "imageUrl": "https://images.albertsons-media.com/is/image/ABS/184700157?$ng-ecom-pdp-desktop$&defaultImage=Not_Available"
+      "price": 2.99
     },
     {
       "name": "Wild Alaskan Salmon",
       "description": "Sustainably caught Wild Alaskan Salmon",
-      "price": 12.99,
-      "imageUrl": "https://ecom-su-static-prod.wtrecom.com/images/products/11/LN_678588_BP_11.jpg"
+      "price": 12.99
     },
     {
       "name": "Organic Blueberries",
       "description": "Freshly picked and organic blueberries",
-      "price": 3.99,
-      "imageUrl": "https://groceries.morrisons.com/productImages/594/594553011_0_640x640.jpg?identifier=5698c52ae7e36725c16e98ebc4620d4f"
+      "price": 3.99
     },
     {
       "name": "Grass-fed Beef",
       "description": "Grass-fed and organic beef",
-      "price": 18.99,
-      "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_7c8ef2af-c4b0-4ac9-be29-8154019bd3c4?wid=488&hei=488&fmt=pjpeg"
+      "price": 18.99
     },
     {
       "name": "Fresh Sourdough Bread",
       "description": "Freshly baked organic sourdough bread",
-      "price": 5.99,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm_Mwfz4CL880qZvO3DPVuAmk2vTRrY9VA3g&usqp=CAU"
+      "price": 5.99
     },
     {
       "name": "Organic Lemons",
       "description": "Freshly picked and organic lemons",
-      "price": 1.99,
-      "imageUrl": "https://www.orgpick.com/cdn/shop/products/Organic-Lemon_large_a1d0d73d-de8e-4281-bf04-ca69c7e4c029.jpg?v=1580901605"
+      "price": 1.99
     },
     {
       "name": "Wildflower Honey",
       "description": "Locally sourced wildflower honey",
-      "price": 7.99,
-      "imageUrl": "https://m.media-amazon.com/images/I/61ohtCXzH3L.jpg"
+      "price": 7.99
     },
     {
       "name": "Organic Kale",
       "description": "Freshly picked and organic kale",
-      "price": 2.99,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJkY2yUHXBbj4uNfCSaCscVHSGvNoMc66f-6D0DsKqHpINUDlwFUwrY5jNxUXIY0uELU0&usqp=CAU"
+      "price": 2.99
     },
     {
       "name": "Fresh Mozzarella Cheese",
       "description": "Freshly made mozzarella cheese",
-      "price": 8.99,
-      "imageUrl": "https://m.media-amazon.com/images/I/71Qa7Rhp30L.jpg"
+      "price": 8.99
     },
     {
       "name": "Organic Cherry Tomatoes",
       "description": "Freshly picked and organic cherry tomatoes",
-      "price": 3.99,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAvpUsMydMy5Ma2-YXK1fd0NxDmEeeKpYN6w&usqp=CAU"
+      "price": 3.99
     },
     {
       "name": "Wild-caught Shrimp",
       "description": "Sustainably caught wild-caught shrimp",
-      "price": 14.99,
-      "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_3c58e491-1838-4424-8e7f-f7e8217c6c7c?wid=488&hei=488&fmt=pjpeg"
+      "price": 14.99
     },
     {
       "name": "Organic Baby Carrots",
       "description": "Freshly picked and organic baby carrots",
-      "price": 2.99,
-      "imageUrl": "https://www.bolthouse.com/wp-content/uploads/sites/4/2020/10/CAR_ORG_BabyCut_1lb_shadow_productpage_web.png"
+      "price": 2.99
     },
     {
       "name": "Freshly Brewed Coffee",
       "description": "Freshly brewed organic coffee",
-      "price": 4.99,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUL0-deUuNXf6kSanjMvp3kglh_63wd8O39Q&usqp=CAU"
+      "price": 4.99
     },
     {
       "name": "Organic Red Bell Peppers",
       "description": "Freshly picked and organic red bell peppers",
-      "price": 2.99,
-      "imageUrl": "https://cdn.perishablenews.com/2022/06/a-p123.jpg"
+      "price": 2.99
     },
     {
       "name": "Wild-caught Cod",
       "description": "Sustainably caught wild-caught cod",
-      "price": 13.99,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtCI6WZi54_rN7R1TsLXGPVRBzS3s2FaCVKXylmlEZ2lNmAvoD0i7X4pRWfrN5EaNVZ2Q&usqp=CAU"
+      "price": 13.99
     },
     {
       "name": "Freshly Squeezed Orange Juice",
       "description": "Freshly squeezed organic orange juice",
-      "price": 6.99,
-      "imageUrl": "https://images.milkandmore.co.uk/image/upload/w_iw/f_auto,q_auto:eco/d_back_up_image.jpg,w_auto,c_scale/v1/products/77003_1.jpg"
+      "price": 6.99
     },
     {
       "name": "Organic Broccoli",
       "description": "Freshly picked and organic broccoli",
-      "price": 3.99,
-      "imageUrl": "https://i5.walmartimages.com/seo/Marketside-Organic-Fresh-Broccoli-Florets-12-oz_6741ff9c-8f77-42e8-8f4a-56c31eaad6c6.565a0b4438c11d26d74ec10fb78123ca.jpeg"
+      "price": 3.99
     },
     {
       "name": "Artisanal Goat Cheese",
       "description": "Handcrafted artisanal goat cheese",
-      "price": 9.99,
-      "imageUrl": "https://m.media-amazon.com/images/I/71XPtdYk9pL.jpg"
+      "price": 9.99
     },
     {
       "name": "Organic Apples",
       "description": "Freshly picked and organic apples",
-      "price": 2.99,
-      "imageUrl": "https://i5.walmartimages.com/seo/Fresh-Organic-Gala-Apples-3-lb-Bag_5480c119-02f7-46fa-b4fd-8fbf23371acf.f2a52e284233521d879585c73e8a85e3.jpeg"
+      "price": 2.99
     },
     {
       "name": "Wild-caught Scallops",
       "description": "Sustainably caught wild-caught scallops",
-      "price": 22.99,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDM7f0JorpyPZT2C5JghpQ7dyyVAo6adoKROsTntCzMze0mhKfdKum4OQXsMNfKurwRZo&usqp=CAU"
+      "price": 22.99
     }
   ]
 }
