@@ -25,11 +25,21 @@ public class HomeServlet extends HttpServlet {
 
         req.getRequestDispatcher("/pages/home.jsp").forward(req, resp);
         resp.setContentType("text/html");
+
         super.doGet(req, resp);
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.getServletContext();
+        String productTitle = req.getParameter("title");
+        String productDescription = req.getParameter("description");
+        float productPrice = Float.parseFloat(req.getParameter("price"));
+
+        Product newProduct = new Product(productTitle, productDescription, productPrice);
+        productList.add(newProduct);
+        newProduct.printProductInfo();
+
         super.doPost(req, resp);
     }
 }
