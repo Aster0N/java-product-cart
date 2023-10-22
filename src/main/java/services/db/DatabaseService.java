@@ -1,10 +1,11 @@
-package services;
+package services.db;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseService {
     public Connection getConnect(){
@@ -30,6 +31,19 @@ public class DatabaseService {
             System.out.println(e.getMessage());
         }
         return conn;
+    }
+
+    public boolean insert(String sql) {
+        boolean isSuccessful = false;
+        Statement statement = null;
+        try {
+            statement = getConnect().createStatement();
+            statement.executeQuery(sql);
+            isSuccessful = true;
+        } catch (Exception throwables) {
+            throwables.printStackTrace();
+        }
+        return isSuccessful;
     }
 
 }
