@@ -32,11 +32,11 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getServletContext();
-        String productTitle = req.getParameter("title");
+        String productName = req.getParameter("name");
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));
 
-        Product newProduct = new Product(productTitle, productDescription, productPrice);
+        Product newProduct = new Product(productName, productDescription, productPrice);
         productList.add(newProduct);
         newProduct.printProductInfo();
 

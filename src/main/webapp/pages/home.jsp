@@ -46,9 +46,9 @@
     <div class="wrapper">
         <h1>Home page</h1>
         <form class="create-product" method="post">
-            <label for="title">
-                Product title:<br>
-                <input type="text" placeholder="title" id="title" name="title">
+            <label for="name">
+                Product name:<br>
+                <input type="text" placeholder="name" id="name" name="name">
             </label><br>
             <label for="description">
                 Product description:<br>
