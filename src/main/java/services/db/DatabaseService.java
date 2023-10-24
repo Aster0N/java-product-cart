@@ -15,10 +15,7 @@ public class DatabaseService {
             e.printStackTrace();
         }
 
-        Dotenv dotenv = Dotenv.configure()
-                .directory("/assets")
-                .filename("env")
-                .load();
+        Dotenv dotenv = Dotenv.load();
         final String url = dotenv.get("DB_URL");
         final String user = dotenv.get("DB_USER");
         final String password = dotenv.get("DB_PASSWORD");
