@@ -35,7 +35,7 @@ public class DatabaseService {
         Statement statement = null;
         try {
             statement = getConnect().createStatement();
-            statement.executeQuery(sql);
+            statement.executeUpdate(sql);
             isSuccessful = true;
         } catch (Exception throwables) {
             throwables.printStackTrace();
