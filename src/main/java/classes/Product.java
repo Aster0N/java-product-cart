@@ -4,6 +4,7 @@ public class Product {
     private String name;
     private String description;
     private float price;
+    private boolean savedInCart = false;
 
     public Product(String name, String description, float price) {
         this.name = name;
@@ -20,6 +21,9 @@ public class Product {
     public float getPrice() {
         return price;
     }
+    public boolean savedInCart() {
+        return savedInCart;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -30,10 +34,14 @@ public class Product {
     public void setPrice(float price) {
         this.price = price;
     }
+    public void setSavedInCart(boolean savedInCart) {
+        this.savedInCart = savedInCart;
+    }
 
     public void printProductInfo() {
         System.out.println(this.name);
         System.out.println(this.description);
         System.out.println(this.price);
+        System.out.println(this.savedInCart);
     }
 }

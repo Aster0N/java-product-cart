@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS product_list (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id serial PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),
     saved_in_cart BOOLEAN DEFAULT false,
