@@ -49,6 +49,12 @@
             <artifactId>jackson-core</artifactId>
             <version>2.12.7</version>
         </dependency>
+        <!-- sql support -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.27</version>
+        </dependency>
         <!-- .env support -->
         <dependency>
             <groupId>io.github.cdimascio</groupId>

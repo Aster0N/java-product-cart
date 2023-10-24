@@ -21,7 +21,7 @@ public class Product {
     public float getPrice() {
         return price;
     }
-    public boolean savedInCart() {
+    public boolean getSavedInCart() {
         return savedInCart;
     }
 
