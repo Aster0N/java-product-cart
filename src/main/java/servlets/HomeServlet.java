@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static helpers.Helpers.fillProductList;
+import services.ProductService;
 
 public class HomeServlet extends HttpServlet {
     private static List<Product> productList = new ArrayList<Product>();
@@ -38,7 +39,12 @@ public class HomeServlet extends HttpServlet {
 
         Product newProduct = new Product(productName, productDescription, productPrice);
         productList.add(newProduct);
-        newProduct.printProductInfo();
+        ProductService productService = new ProductService();
+        productService.addProduct(newProduct);
+
+        // refresh page with whole content
+        req.setAttribute("productList", productList);
+        req.getRequestDispatcher("/pages/home.jsp").forward(req, resp);
 
         super.doPost(req, resp);
     }

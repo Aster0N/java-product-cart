@@ -58,7 +58,7 @@
                 Product price:<br>
                 <input type="number" step="0.01" placeholder="price" id="price" name="price">
             </label><br>
-            <button type="submit">create</button>
+            <button>create</button>
         </form>
 
         <div class="cards-wrapper">
