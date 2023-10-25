@@ -24,6 +24,21 @@
     .create-product {
         margin: 0 0 25px 0;
     }
+    input {
+        padding: 8px;
+        margin: 0 0 10px 0;
+    }
+    .create-btn {
+        padding: 5px;
+        background-color: transparent;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        margin: 10px 0 0 0;
+    }
+    .create-btn:hover {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+    }
     .cards-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -39,6 +54,28 @@
         flex-direction: column;
         gap: 15px;
         justify-content: space-between;
+        position: relative;
+    }
+    .save-to-cart-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+        transition: all .2s ease-out;
+        cursor: pointer;
+        background-color: transparent;
+        border: 1px solid #2c3e50;
+        padding: 5px;
+    }
+    .save-to-cart-btn:hover {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+    }
+    .card:hover .save-to-cart-btn {
+        opacity: 1;
+        pointer-events: all;
     }
     </style>
 </head>
@@ -58,12 +95,13 @@
                 Product price:<br>
                 <input type="number" step="0.01" placeholder="price" id="price" name="price">
             </label><br>
-            <button>create</button>
+            <button class="create-btn">create</button>
         </form>
 
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productList}">
                 <div class="card">
+                    <button class="save-to-cart-btn">save</button>
                     <div class="card-info">
                         <h2>${product.getName()}</h2>
                         <p>${product.getDescription()}</p>
