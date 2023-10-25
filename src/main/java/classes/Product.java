@@ -11,6 +11,12 @@ public class Product {
         this.description = description;
         this.price = price;
     }
+    public Product(String name, String description, boolean savedInCart, float price) {
+        this.name = name;
+        this.description = description;
+        this.savedInCart = savedInCart;
+        this.price = price;
+    }
 
     public String getName() {
         return name;

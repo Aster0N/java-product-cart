@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class DatabaseService {
     public Connection getConnect(){
@@ -28,6 +29,17 @@ public class DatabaseService {
             System.out.println(e.getMessage());
         }
         return conn;
+    }
+
+    public ResultSet select(String sql){
+        Statement statement = null;
+        try {
+            statement = getConnect().createStatement();
+            return statement.executeQuery(sql); // returning result set
+        } catch (SQLException throwables) {
+            System.out.println(throwables.getMessage());
+            return null;
+        }
     }
 
     public boolean insert(String sql) {

@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static helpers.Helpers.fillProductList;
 import services.ProductService;
 
 public class HomeServlet extends HttpServlet {
@@ -18,9 +17,10 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if(productList.isEmpty()) {
-            fillProductList(productList);
-        }
+
+        // load data from db
+        ProductService productService = new ProductService();
+        productList = productService.loadProductListFromDB();
 
         req.setAttribute("productList", productList);
 
