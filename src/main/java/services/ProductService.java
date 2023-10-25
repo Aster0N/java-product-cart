@@ -17,11 +17,12 @@ public class ProductService {
         ResultSet resultSet = dbService.select(sql);
         try {
             while (resultSet.next()) {
+                String uId = resultSet.getString("uid");
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
                 boolean savedInCart = resultSet.getBoolean("saved_in_cart");
                 float price = resultSet.getFloat("price");
-                Product product = new Product(name, description, savedInCart, price);
+                Product product = new Product(uId, name, description, savedInCart, price);
                 products.add(product);
             }
         } catch (SQLException throwables) {
@@ -32,7 +33,8 @@ public class ProductService {
     }
     public void addProduct(Product product) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "insert into product_list (name, description, saved_in_cart, price) values ('"
+        String sql = "insert into product_list (uid, name, description, saved_in_cart, price) values ('"
+                + product.getUId() + "','"
                 + product.getName() + "','"
                 + product.getDescription() + "',"
                 + product.getSavedInCart() + ",'"
