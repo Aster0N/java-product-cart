@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import services.ProductService;
 
@@ -36,6 +37,15 @@ public class HomeServlet extends HttpServlet {
         String productName = req.getParameter("name");
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));
+
+        Product previousAddedProduct = productList.get(productList.size() - 1);
+        if(Objects.equals(previousAddedProduct.getName(), productName) &&
+                Objects.equals(previousAddedProduct.getDescription(), productDescription) &&
+                previousAddedProduct.getPrice() == productPrice) {
+            req.setAttribute("productList", productList);
+            req.getRequestDispatcher("/pages/home.jsp").forward(req, resp);
+            return;
+        }
 
         Product newProduct = new Product(productName, productDescription, productPrice);
         productList.add(newProduct);
