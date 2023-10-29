@@ -16,6 +16,8 @@
         margin: 0;
         font-size: 18px;
         font-family: sans-serif;
+        background-color: #2d3436;
+        color: #ecf0f1;
     }
     .wrapper {
         width: 1000px;
@@ -31,13 +33,16 @@
     .create-btn {
         padding: 5px;
         background-color: transparent;
+        border: 1px solid #ecf0f1;
+        color: #ecf0f1;
+        outline: none;
         transition: all .2s ease-in-out;
         cursor: pointer;
         margin: 10px 0 0 0;
     }
     .create-btn:hover {
-        background-color: #2c3e50;
-        color: #ecf0f1;
+        background-color: #ecf0f1;
+        color: #2d3436;
     }
     .cards-wrapper {
         display: flex;
@@ -58,20 +63,21 @@
     }
     .save-to-cart-btn {
         position: absolute;
-        right: 10px;
-        top: 10px;
+        right: 5px;
+        top: 5px;
         opacity: 0;
         pointer-events: none;
         user-select: none;
         transition: all .2s ease-out;
         cursor: pointer;
         background-color: transparent;
-        border: 1px solid #2c3e50;
+        border: 1px solid #ecf0f1;
+        color: #ecf0f1;
         padding: 5px;
     }
     .save-to-cart-btn:hover {
-        background-color: #2c3e50;
-        color: #ecf0f1;
+        background-color: #ecf0f1;
+        color: #2d3436;
     }
     .card:hover .save-to-cart-btn {
         opacity: 1;
