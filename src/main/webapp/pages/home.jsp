@@ -80,6 +80,12 @@
         background-color: #ecf0f1;
         color: #2d3436;
     }
+    .save-to-cart-btn.save-btn-active {
+        background-color: #ecf0f1;
+        color: #2d3436;
+        opacity: 1;
+        pointer-events: all;
+    }
     .card:hover .save-to-cart-btn {
         opacity: 1;
         pointer-events: all;
@@ -108,8 +114,11 @@
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productList}">
                 <div class="card">
-                    <form method="post" action="/app/?product=${product.getUId()}">
-                        <button type="submit" class="save-to-cart-btn">save</button>
+                    <form method="post" action="/app/?save-product=${product.getUId()}">
+                        <button type="submit" class="save-to-cart-btn <c:if test="${product.getSavedInCart()}">save-btn-active</c:if>">
+                            <c:if test="${product.getSavedInCart()}">saved</c:if>
+                            <c:if test="${not product.getSavedInCart()}">save</c:if>
+                        </button>
                     </form>
                     <div class="card-info">
                         <h2>${product.getName()}</h2>

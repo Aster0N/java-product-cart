@@ -47,12 +47,12 @@ public class ProductService {
         }
     }
 
-    public void saveProduct(String uId) {
+    public void saveProduct(boolean isSaved, String uId) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "update product_list set saved_in_cart=true where uid='" + uId + "';";
+        String sql = "update product_list set saved_in_cart=" + isSaved + " where uid='" + uId + "';";
 
         if(dbService.update(sql)) {
-            System.out.println("Data saved successfully");
+            System.out.println("Product "+ uId + " saved successfully");
         } else {
             System.out.println("DB update(save) error");
         }
