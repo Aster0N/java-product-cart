@@ -40,10 +40,21 @@ public class ProductService {
                 + product.getSavedInCart() + ",'"
                 + product.getPrice() + "');";
 
-        if(dbService.insert(sql)) {
+        if(dbService.update(sql)) {
             System.out.println("Data inserted successfully");
         } else {
-            System.out.println("DB service insert error");
+            System.out.println("DB update(insert) error");
+        }
+    }
+
+    public void saveProduct(String uId) {
+        DatabaseService dbService = new DatabaseService();
+        String sql = "update product_list set saved_in_cart=true where uid='" + uId + "';";
+
+        if(dbService.update(sql)) {
+            System.out.println("Data saved successfully");
+        } else {
+            System.out.println("DB update(save) error");
         }
     }
 }

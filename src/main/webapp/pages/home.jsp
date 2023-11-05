@@ -22,6 +22,7 @@
     .wrapper {
         width: 1000px;
         margin: 0 auto;
+        padding: 0 0 40px 0;
     }
     .create-product {
         margin: 0 0 25px 0;
@@ -107,7 +108,9 @@
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productList}">
                 <div class="card">
-                    <button class="save-to-cart-btn">save</button>
+                    <form method="post" action="/app/?product=${product.getUId()}">
+                        <button type="submit" class="save-to-cart-btn">save</button>
+                    </form>
                     <div class="card-info">
                         <h2>${product.getName()}</h2>
                         <p>${product.getDescription()}</p>

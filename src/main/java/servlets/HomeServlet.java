@@ -34,6 +34,15 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getServletContext();
+        String productToSaveUId = req.getParameter("product");
+        if(productToSaveUId != null && !productToSaveUId.isEmpty()) {
+            ProductService productService = new ProductService();
+            productService.saveProduct(productToSaveUId);
+            req.setAttribute("productList", productList);
+            req.getRequestDispatcher("/pages/home.jsp").forward(req, resp);
+            return;
+        }
+
         String productName = req.getParameter("name");
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));

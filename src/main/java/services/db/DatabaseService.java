@@ -42,7 +42,7 @@ public class DatabaseService {
         }
     }
 
-    public boolean insert(String sql) {
+    public boolean update(String sql) {
         boolean isSuccessful = false;
         Statement statement = null;
         try {
