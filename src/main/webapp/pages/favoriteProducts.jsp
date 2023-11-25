@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,6 +48,10 @@
             gap: 15px;
             justify-content: space-between;
             position: relative;
+            transition: all .3s ease-out;
+        }
+        .card:hover {
+            border: 1px solid #ffffff;
         }
         .remove-from-favorite-btn {
             position: absolute;
