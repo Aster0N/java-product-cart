@@ -62,7 +62,7 @@
         justify-content: space-between;
         position: relative;
     }
-    .save-to-cart-btn {
+    .add-to-favorite-btn {
         position: absolute;
         right: 5px;
         top: 5px;
@@ -76,17 +76,17 @@
         color: #ecf0f1;
         padding: 5px;
     }
-    .save-to-cart-btn:hover {
+    .add-to-favorite-btn:hover {
         background-color: #ecf0f1;
         color: #2d3436;
     }
-    .save-to-cart-btn.save-btn-active {
+    .add-to-favorite-btn.add-favorite-btn-active {
         background-color: #ecf0f1;
         color: #2d3436;
         opacity: 1;
         pointer-events: all;
     }
-    .card:hover .save-to-cart-btn {
+    .card:hover .add-to-favorite-btn {
         opacity: 1;
         pointer-events: all;
     }
@@ -114,10 +114,12 @@
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productList}">
                 <div class="card">
-                    <form method="post" action="/app/?save-product=${product.getUId()}">
-                        <button type="submit" class="save-to-cart-btn <c:if test="${product.getSavedInCart()}">save-btn-active</c:if>">
-                            <c:if test="${product.getSavedInCart()}">saved</c:if>
-                            <c:if test="${not product.getSavedInCart()}">save</c:if>
+                    <form method="post" action="/app/?add-to-favorite=${product.getUId()}">
+                        <button type="submit"
+                                class="add-to-favorite-btn <c:if test="${product.getIsFavorite()}">
+                        add-favorite-btn-active</c:if>">
+                            <c:if test="${product.getIsFavorite()}">favorite</c:if>
+                            <c:if test="${not product.getIsFavorite()}">add to favorite</c:if>
                         </button>
                     </form>
                     <div class="card-info">

@@ -7,7 +7,7 @@ public class Product {
     private String name;
     private String description;
     private float price;
-    private boolean savedInCart = false;
+    private boolean isFavorite = false;
 
     public Product(String name, String description, float price) {
         this.uId = UUID.randomUUID().toString();
@@ -15,11 +15,11 @@ public class Product {
         this.description = description;
         this.price = price;
     }
-    public Product(String uId, String name, String description, boolean savedInCart, float price) {
+    public Product(String uId, String name, String description, boolean isFavorite, float price) {
         this.uId = uId;
         this.name = name;
         this.description = description;
-        this.savedInCart = savedInCart;
+        this.isFavorite = isFavorite;
         this.price = price;
     }
 
@@ -35,8 +35,8 @@ public class Product {
     public float getPrice() {
         return price;
     }
-    public boolean getSavedInCart() {
-        return savedInCart;
+    public boolean getIsFavorite() {
+        return isFavorite;
     }
 
     public void setUId(String uId) {
@@ -51,8 +51,8 @@ public class Product {
     public void setPrice(float price) {
         this.price = price;
     }
-    public void setSavedInCart(boolean savedInCart) {
-        this.savedInCart = savedInCart;
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
     public void printProductInfo() {
@@ -60,6 +60,6 @@ public class Product {
         System.out.println(this.name);
         System.out.println(this.description);
         System.out.println(this.price);
-        System.out.println(this.savedInCart);
+        System.out.println(this.isFavorite);
     }
 }

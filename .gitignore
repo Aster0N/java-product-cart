@@ -6,6 +6,9 @@ target/
 ### env ###
 .env
 
+### project ideas ###
+.improvements.txt
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml

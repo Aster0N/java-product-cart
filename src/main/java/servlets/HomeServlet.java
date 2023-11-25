@@ -15,14 +15,14 @@ import services.ProductService;
 
 public class HomeServlet extends HttpServlet {
     private static List<Product> productList = new ArrayList<Product>();
-    private boolean saveProduct(String uId) {
+    private boolean addProductToFavorite(String uId) {
         for (int i = 0; i < productList.size(); i++) {
             Product product = productList.get(i);
             if(Objects.equals(product.getUId(), uId)) {
-                boolean isSaved = product.getSavedInCart();
-                product.setSavedInCart(!isSaved);
+                boolean isFavorite = product.getIsFavorite();
+                product.setIsFavorite(!isFavorite);
                 productList.set(i, product);
-                return product.getSavedInCart();
+                return product.getIsFavorite();
             }
         }
         return false;
@@ -47,12 +47,12 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         req.getServletContext();
 
-        String productToSaveUId = req.getParameter("save-product");
-        if(productToSaveUId != null && !productToSaveUId.isEmpty()) {
-            // change save state on client
-            boolean isSaved = saveProduct(productToSaveUId);
+        String favoriteProduct = req.getParameter("add-to-favorite");
+        if(favoriteProduct != null && !favoriteProduct.isEmpty()) {
+            // change is_favorite state on client
+            boolean isFavorite = addProductToFavorite(favoriteProduct);
             ProductService productService = new ProductService();
-            productService.saveProduct(isSaved, productToSaveUId);
+            productService.addProductToFavorite(isFavorite, favoriteProduct);
             req.setAttribute("productList", productList);
             resp.sendRedirect("/app/");
             return;

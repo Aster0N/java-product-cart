@@ -20,9 +20,9 @@ public class ProductService {
                 String uId = resultSet.getString("uid");
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
-                boolean savedInCart = resultSet.getBoolean("saved_in_cart");
+                boolean isFavorite = resultSet.getBoolean("is_favorite");
                 float price = resultSet.getFloat("price");
-                Product product = new Product(uId, name, description, savedInCart, price);
+                Product product = new Product(uId, name, description, isFavorite, price);
                 products.add(product);
             }
         } catch (SQLException throwables) {
@@ -33,11 +33,11 @@ public class ProductService {
     }
     public void addProduct(Product product) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "insert into product_list (uid, name, description, saved_in_cart, price) values ('"
+        String sql = "insert into product_list (uid, name, description, is_favorite, price) values ('"
                 + product.getUId() + "','"
                 + product.getName() + "','"
                 + product.getDescription() + "',"
-                + product.getSavedInCart() + ",'"
+                + product.getIsFavorite() + ",'"
                 + product.getPrice() + "');";
 
         if(dbService.update(sql)) {
@@ -47,14 +47,14 @@ public class ProductService {
         }
     }
 
-    public void saveProduct(boolean isSaved, String uId) {
+    public void addProductToFavorite(boolean isFavorite, String uId) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "update product_list set saved_in_cart=" + isSaved + " where uid='" + uId + "';";
+        String sql = "update product_list set is_favorite=" + isFavorite + " where uid='" + uId + "';";
 
         if(dbService.update(sql)) {
-            System.out.println("Product "+ uId + " saved successfully");
+            System.out.println("Product "+ uId + " add to favorite successfully");
         } else {
-            System.out.println("DB update(save) error");
+            System.out.println("DB update(add to favorite) error");
         }
     }
 }
