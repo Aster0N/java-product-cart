@@ -45,7 +45,7 @@ public class ProductService {
             System.out.println("DB update(insert) error");
         }
     }
-    public void addProductToFavorite(boolean isFavorite, String uId) {
+    public void updateProductIsFavorite(boolean isFavorite, String uId) {
         DatabaseService dbService = new DatabaseService();
         String sql = "update product_list set is_favorite=" + isFavorite + " where uid='" + uId + "';";
 

@@ -47,18 +47,19 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getServletContext();
-
+        // add/remove from favorite
         String favoriteProduct = req.getParameter("add-to-favorite");
         if(favoriteProduct != null && !favoriteProduct.isEmpty()) {
             // change is_favorite state on client
             boolean isFavorite = addProductToFavorite(favoriteProduct);
             ProductService productService = new ProductService();
-            productService.addProductToFavorite(isFavorite, favoriteProduct);
+            productService.updateProductIsFavorite(isFavorite, favoriteProduct);
             req.setAttribute("productList", productList);
             resp.sendRedirect("/app/");
             return;
         }
 
+        // create new product
         String productName = req.getParameter("name");
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));

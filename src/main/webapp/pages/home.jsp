@@ -11,6 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <style>
+    a {
+        color: #74b9ff;
+        text-decoration: underline;
+    }
     body, html {
         padding: 0;
         margin: 0;
@@ -46,6 +50,7 @@
         color: #2d3436;
     }
     .cards-wrapper {
+        margin: 10px 0 0 0;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -118,7 +123,8 @@
                 <div class="card">
                     <form method="post" action="/app/?add-to-favorite=${product.getUId()}">
                         <button type="submit"
-                                class="add-to-favorite-btn <c:if test="${product.getIsFavorite()}">add-favorite-btn-active</c:if>">
+                                class="add-to-favorite-btn <c:if test="${product.getIsFavorite()}">add-favorite-btn-active</c:if>"
+                        >
                             <c:if test="${product.getIsFavorite()}">favorite</c:if>
                             <c:if test="${not product.getIsFavorite()}">add to favorite</c:if>
                         </button>
