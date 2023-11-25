@@ -13,6 +13,9 @@
     <style>
     a {
         color: #74b9ff;
+        text-decoration: none;
+    }
+    a:hover {
         text-decoration: underline;
     }
     body, html {
@@ -66,6 +69,10 @@
         gap: 15px;
         justify-content: space-between;
         position: relative;
+        transition: all .3s ease-out;
+    }
+    .card:hover {
+        border: 1px solid #74b9ff;
     }
     .add-to-favorite-btn {
         position: absolute;
