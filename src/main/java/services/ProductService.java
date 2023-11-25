@@ -9,11 +9,10 @@ import java.util.List;
 import java.sql.ResultSet;
 
 public class ProductService {
-    public List<Product> loadProductListFromDB() {
+    public List<Product> loadProductListFromDB(String sql) {
         List<Product> products = new ArrayList<Product>();
 
         DatabaseService dbService = new DatabaseService();
-        String sql = "select * from product_list;";
         ResultSet resultSet = dbService.select(sql);
         try {
             while (resultSet.next()) {
@@ -46,15 +45,14 @@ public class ProductService {
             System.out.println("DB update(insert) error");
         }
     }
-
     public void addProductToFavorite(boolean isFavorite, String uId) {
         DatabaseService dbService = new DatabaseService();
         String sql = "update product_list set is_favorite=" + isFavorite + " where uid='" + uId + "';";
 
         if(dbService.update(sql)) {
-            System.out.println("Product "+ uId + " add to favorite successfully");
+            System.out.println("Product "+ uId + " is_favorite changed successfully");
         } else {
-            System.out.println("DB update(add to favorite) error");
+            System.out.println("DB update is_favorite error");
         }
     }
 }

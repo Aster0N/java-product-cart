@@ -11,4 +11,13 @@
         <servlet-name>homeServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>favoriteProductsServlet</servlet-name>
+        <servlet-class>servlets.FavoriteProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>favoriteProductsServlet</servlet-name>
+        <url-pattern>/favorite</url-pattern>
+    </servlet-mapping>
 </web-app>

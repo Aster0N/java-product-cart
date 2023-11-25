@@ -33,7 +33,8 @@ public class HomeServlet extends HttpServlet {
 
         // load data from db
         ProductService productService = new ProductService();
-        productList = productService.loadProductListFromDB();
+        String sql = "select * from product_list;";
+        productList = productService.loadProductListFromDB(sql);
 
         req.setAttribute("productList", productList);
 

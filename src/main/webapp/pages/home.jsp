@@ -9,7 +9,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
+    <title>Home</title>
     <style>
     body, html {
         padding: 0;
@@ -111,13 +111,14 @@
             <button class="create-btn">create</button>
         </form>
 
+        <a href="/app/favorite">Favorite products</a>
+
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productList}">
                 <div class="card">
                     <form method="post" action="/app/?add-to-favorite=${product.getUId()}">
                         <button type="submit"
-                                class="add-to-favorite-btn <c:if test="${product.getIsFavorite()}">
-                        add-favorite-btn-active</c:if>">
+                                class="add-to-favorite-btn <c:if test="${product.getIsFavorite()}">add-favorite-btn-active</c:if>">
                             <c:if test="${product.getIsFavorite()}">favorite</c:if>
                             <c:if test="${not product.getIsFavorite()}">add to favorite</c:if>
                         </button>
