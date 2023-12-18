@@ -31,6 +31,12 @@
         margin: 0 auto;
         padding: 0 0 40px 0;
     }
+    header {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
     .create-product {
         margin: 0 0 25px 0;
     }
@@ -41,6 +47,9 @@
         color: #ecf0f1;
         border: none;
         border-bottom: 1px solid #ecf0f1;
+    }
+    a, button {
+        cursor: pointer;
     }
     input:focus-within, button:focus-within {
         outline: 2px solid #fff;
@@ -134,7 +143,13 @@
 </head>
 <body>
     <div class="wrapper">
-        <h1>Home page</h1>
+        <header>
+            <div class="links">
+                <a href="/app/favorite">Favorite products</a>
+                &nbsp;/&nbsp;
+                <a href="/app/product-cart">Cart</a>
+            </div>
+        </header>
         <form class="create-product" method="post">
             <label for="name">
                 Product name:<br>
@@ -150,8 +165,6 @@
             </label><br>
             <button class="create-btn">create</button>
         </form>
-
-        <a href="/app/favorite">Favorite products</a>
 
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productList}">

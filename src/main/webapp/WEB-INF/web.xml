@@ -20,4 +20,13 @@
         <servlet-name>favoriteProductsServlet</servlet-name>
         <url-pattern>/favorite</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>productCartServlet</servlet-name>
+        <servlet-class>servlets.ProductCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productCartServlet</servlet-name>
+        <url-pattern>/product-cart</url-pattern>
+    </servlet-mapping>
 </web-app>
