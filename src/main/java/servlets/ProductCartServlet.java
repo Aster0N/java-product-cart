@@ -20,6 +20,8 @@ public class ProductCartServlet extends HttpServlet {
         for (Product product : productCart) {
             totalAmount += product.getPrice();
         }
+        double roundedAmount = Math.round(totalAmount * Math.pow(10, 2)) / Math.pow(10, 2);
+        totalAmount = (float) roundedAmount;
     }
     private boolean removeProductFromCart(String uId) {
         for (int i = 0; i < productCart.size(); i++) {
