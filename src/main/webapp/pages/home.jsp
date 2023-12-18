@@ -37,6 +37,14 @@
     input {
         padding: 8px;
         margin: 0 0 10px 0;
+        background-color: transparent;
+        color: #ecf0f1;
+        border: none;
+        border-bottom: 1px solid #ecf0f1;
+    }
+    input:focus-within, button:focus-within {
+        outline: 2px solid #fff;
+        border-radius: 5px;
     }
     .create-btn {
         padding: 5px;
@@ -102,6 +110,26 @@
         opacity: 1;
         pointer-events: all;
     }
+    .card-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .order-btn {
+        padding: 5px 10px;
+        text-transform: uppercase;
+        background: transparent;
+        border: 1px solid #ecf0f1;
+        transition: all .3s ease-out;
+        outline: none;
+        color: #ecf0f1;
+        cursor: pointer;
+    }
+    .order-btn:hover {
+        background-color: #74b9ff;
+        border: 1px solid #74b9ff;
+        color: #2d3436;
+    }
     </style>
 </head>
 <body>
@@ -142,6 +170,9 @@
                     </div>
                     <div class="card-price">
                         <p><strong>Price: </strong>${product.getPrice()}</p>
+                        <form action="">
+                            <button class="order-btn">order</button>
+                        </form>
                     </div>
                 </div>
             </c:forEach>
