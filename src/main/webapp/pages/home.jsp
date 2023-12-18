@@ -134,6 +134,7 @@
         color: #ecf0f1;
         cursor: pointer;
     }
+    .order-btn.order-btn-active,
     .order-btn:hover {
         background-color: #74b9ff;
         border: 1px solid #74b9ff;
@@ -183,8 +184,11 @@
                     </div>
                     <div class="card-price">
                         <p><strong>Price: </strong>${product.getPrice()}</p>
-                        <form action="">
-                            <button class="order-btn">order</button>
+                        <form method="post" action="/app/?add-to-cart=${product.getUId()}">
+                            <button class="order-btn <c:if test="${product.getIsInCart()}">order-btn-active</c:if>">
+                                <c:if test="${product.getIsInCart()}">ordered</c:if>
+                                <c:if test="${not product.getIsInCart()}">order</c:if>
+                            </button>
                         </form>
                     </div>
                 </div>

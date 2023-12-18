@@ -27,6 +27,18 @@ public class HomeServlet extends HttpServlet {
         }
         return false;
     }
+    private boolean addProductToCart(String uId) {
+        for (int i = 0; i < productList.size(); i++) {
+            Product product = productList.get(i);
+            if(Objects.equals(product.getUId(), uId)) {
+                boolean isInCart = product.getIsInCart();
+                product.setIsInCart(!isInCart);
+                productList.set(i, product);
+                return product.getIsInCart();
+            }
+        }
+        return false;
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -54,6 +66,18 @@ public class HomeServlet extends HttpServlet {
             boolean isFavorite = addProductToFavorite(favoriteProduct);
             ProductService productService = new ProductService();
             productService.updateProductIsFavorite(isFavorite, favoriteProduct);
+            req.setAttribute("productList", productList);
+            resp.sendRedirect("/app/");
+            return;
+        }
+
+        // add/remove to product cart
+        String productToCart = req.getParameter("add-to-cart");
+        if(productToCart != null && !productToCart.isEmpty()) {
+            // change is_in_cart on client
+            boolean isInCart = addProductToCart(productToCart);
+            ProductService productService = new ProductService();
+            productService.updateProductIsInCart(isInCart, productToCart);
             req.setAttribute("productList", productList);
             resp.sendRedirect("/app/");
             return;

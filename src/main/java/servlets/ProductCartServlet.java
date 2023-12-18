@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCartServlet extends HttpServlet {
-    private static int totalAmount;
+    private static float totalAmount = 0;
     private static List<Product> productCart = new ArrayList<Product>();
     private void calculateTotalAmount() {
         for (Product product : productCart) {
-            totalAmount += (int) product.getPrice();
+            totalAmount += product.getPrice();
         }
     }
 
@@ -27,7 +27,9 @@ public class ProductCartServlet extends HttpServlet {
         // load data from db
         ProductService productService = new ProductService();
         productCart = productService.loadProductListFromDB(sql);
-        calculateTotalAmount();
+        if(totalAmount == 0) {
+            calculateTotalAmount();
+        }
 
         req.setAttribute("productCart", productCart);
         if(totalAmount > 0) {

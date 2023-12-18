@@ -18,7 +18,7 @@
         <a href="/app/">Back</a>
         <div class="cards-wrapper">
             <c:if test="${totalAmount > 0}">
-                <h4>Total amount: ${totalAmount}</h4>
+                <h4>Total amount: ${totalAmount}$</h4>
             </c:if>
             <c:forEach var="product" items="${productCart}">
                 <div class="card">

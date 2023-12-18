@@ -56,4 +56,14 @@ public class ProductService {
             System.out.println("DB update is_favorite error");
         }
     }
+    public void updateProductIsInCart(boolean isInCart, String uId) {
+        DatabaseService dbService = new DatabaseService();
+        String sql = "update product_list set is_in_cart=" + isInCart + " where uid='" + uId + "';";
+
+        if(dbService.update(sql)) {
+            System.out.println("Product "+ uId + " is_in_cart changed successfully");
+        } else {
+            System.out.println("DB update is_in_cart error");
+        }
+    }
 }
