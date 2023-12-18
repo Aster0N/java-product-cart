@@ -17,7 +17,9 @@
         <h2>Your product cart</h2>
         <a href="/app/">Back</a>
         <div class="cards-wrapper">
-            <h4>Total amount: ${totalAmount}</h4>
+            <c:if test="${totalAmount > 0}">
+                <h4>Total amount: ${totalAmount}</h4>
+            </c:if>
             <c:forEach var="product" items="${productCart}">
                 <div class="card">
                     <form method="post" action="/app/favorite?remove-from-cart=${product.getUId()}">

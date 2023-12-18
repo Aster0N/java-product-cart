@@ -14,17 +14,25 @@ import java.util.List;
 public class ProductCartServlet extends HttpServlet {
     private static int totalAmount;
     private static List<Product> productCart = new ArrayList<Product>();
+    private void calculateTotalAmount() {
+        for (Product product : productCart) {
+            totalAmount += (int) product.getPrice();
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String sql = "SELECT pl.* FROM favorite_products fp JOIN product_list pl ON fp.product_id = pl.id;";
+        String sql = "SELECT pl.* FROM product_cart pc JOIN product_list pl ON pc.product_id = pl.id;";
         // load data from db
         ProductService productService = new ProductService();
         productCart = productService.loadProductListFromDB(sql);
+        calculateTotalAmount();
 
         req.setAttribute("productCart", productCart);
-
+        if(totalAmount > 0) {
+            req.setAttribute("totalAmount", totalAmount);
+        }
 
         req.getRequestDispatcher("/pages/productCart.jsp").forward(req, resp);
         resp.setContentType("text/html");
