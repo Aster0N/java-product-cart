@@ -65,7 +65,7 @@ public class HomeServlet extends HttpServlet {
             // change is_favorite state on client
             boolean isFavorite = addProductToFavorite(favoriteProduct);
             ProductService productService = new ProductService();
-            productService.updateProductIsFavorite(isFavorite, favoriteProduct);
+            productService.updateProductBooleanFieldById("is_favorite", isFavorite, favoriteProduct);
             req.setAttribute("productList", productList);
             resp.sendRedirect("/app/");
             return;
@@ -77,7 +77,7 @@ public class HomeServlet extends HttpServlet {
             // change is_in_cart on client
             boolean isInCart = addProductToCart(productToCart);
             ProductService productService = new ProductService();
-            productService.updateProductIsInCart(isInCart, productToCart);
+            productService.updateProductBooleanFieldById("is_in_cart", isInCart, productToCart);
             req.setAttribute("productList", productList);
             resp.sendRedirect("/app/");
             return;

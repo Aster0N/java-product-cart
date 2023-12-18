@@ -49,7 +49,7 @@ public class FavoriteProductsServlet extends HttpServlet {
         if(favoriteProduct != null && !favoriteProduct.isEmpty()) {
             boolean isFavorite = removeProductFromFavorite(favoriteProduct);
             ProductService productService = new ProductService();
-            productService.updateProductIsFavorite(isFavorite, favoriteProduct);
+            productService.updateProductBooleanFieldById("is_favorite", isFavorite, favoriteProduct);
             req.setAttribute("favoriteProductList", favoriteProductList);
             resp.sendRedirect("/app/favorite");
             return;

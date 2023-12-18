@@ -62,7 +62,7 @@ public class ProductCartServlet extends HttpServlet {
             boolean isInCart = removeProductFromCart(productInCart);
             calculateTotalAmount();
             ProductService productService = new ProductService();
-            productService.updateProductIsInCart(isInCart, productInCart);
+            productService.updateProductBooleanFieldById("is_in_cart", isInCart, productInCart);
             req.setAttribute("productCart", productCart);
             resp.sendRedirect("/app/product-cart");
             return;

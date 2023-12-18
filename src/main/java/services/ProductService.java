@@ -46,24 +46,14 @@ public class ProductService {
             System.out.println("DB update(insert) error");
         }
     }
-    public void updateProductIsFavorite(boolean isFavorite, String uId) {
+    public void updateProductBooleanFieldById(String fieldName, boolean fieldValue, String uId) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "update product_list set is_favorite=" + isFavorite + " where uid='" + uId + "';";
+        String sql = "update product_list set " + fieldName + "=" + fieldValue + " where uid='" + uId + "';";
 
         if(dbService.update(sql)) {
-            System.out.println("Product "+ uId + " is_favorite changed successfully");
+            System.out.println("Product "+ uId + " " + fieldName + " changed successfully");
         } else {
-            System.out.println("DB update is_favorite error");
-        }
-    }
-    public void updateProductIsInCart(boolean isInCart, String uId) {
-        DatabaseService dbService = new DatabaseService();
-        String sql = "update product_list set is_in_cart=" + isInCart + " where uid='" + uId + "';";
-
-        if(dbService.update(sql)) {
-            System.out.println("Product "+ uId + " is_in_cart changed successfully");
-        } else {
-            System.out.println("DB update is_in_cart error");
+            System.out.println("DB update "+ fieldName +" error");
         }
     }
 }
