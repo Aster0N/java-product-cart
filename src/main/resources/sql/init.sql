@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS product_list (
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),
     is_favorite BOOLEAN DEFAULT false,
+    is_in_cart BOOLEAN DEFAULT false,
     price VARCHAR(255)
 );
 
@@ -14,8 +15,8 @@ CREATE TABLE IF NOT EXISTS favorite_products (
     product_id INTEGER REFERENCES product_list(id)
 );
 
--- create function which updates favorite_products on updating is_favorite field in product_list
--- this function executes in trigger
+-- create function (that executes on trigger) which will add/remove a
+-- field to/from favorite_products on updating is_favorite field in product_list
 CREATE OR REPLACE FUNCTION update_favorite()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -32,3 +33,27 @@ CREATE TRIGGER update_favorite_trigger
 AFTER UPDATE ON product_list
 FOR EACH ROW
 EXECUTE FUNCTION update_favorite();
+
+-- create product_cart table
+CREATE TABLE IF NOT EXISTS product_cart (
+    id serial PRIMARY KEY,
+    product_id INTEGER REFERENCES product_list(id)
+);
+-- create a function (that executes on trigger) which will add/remove a
+-- field to/from product_cart on updating is_in_cart field in product_list
+CREATE OR REPLACE FUNCTION update_cart()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.is_in_cart = true THEN
+        INSERT INTO product_cart (product_id) VALUES (NEW.id);
+    ELSE
+        DELETE FROM product_cart WHERE product_id = NEW.id;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_cart_trigger
+AFTER UPDATE ON product_list
+FOR EACH ROW
+EXECUTE FUNCTION update_cart();

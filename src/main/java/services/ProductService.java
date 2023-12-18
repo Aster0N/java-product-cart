@@ -21,7 +21,8 @@ public class ProductService {
                 String description = resultSet.getString("description");
                 boolean isFavorite = resultSet.getBoolean("is_favorite");
                 float price = resultSet.getFloat("price");
-                Product product = new Product(uId, name, description, isFavorite, price);
+                boolean isInCart = resultSet.getBoolean("is_in_cart");
+                Product product = new Product(uId, name, description, isFavorite, isInCart, price);
                 products.add(product);
             }
         } catch (SQLException throwables) {
