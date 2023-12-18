@@ -10,14 +10,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProductCartServlet extends HttpServlet {
     private static float totalAmount = 0;
     private static List<Product> productCart = new ArrayList<Product>();
     private void calculateTotalAmount() {
+        totalAmount = 0;
         for (Product product : productCart) {
             totalAmount += product.getPrice();
         }
+    }
+    private boolean removeProductFromCart(String uId) {
+        for (int i = 0; i < productCart.size(); i++) {
+            Product product = productCart.get(i);
+            if(Objects.equals(product.getUId(), uId)) {
+                boolean isInCart = product.getIsInCart();
+                product.setIsInCart(!isInCart);
+                productCart.remove(i);
+                return product.getIsInCart();
+            }
+        }
+        return false;
     }
 
     @Override
@@ -27,9 +41,7 @@ public class ProductCartServlet extends HttpServlet {
         // load data from db
         ProductService productService = new ProductService();
         productCart = productService.loadProductListFromDB(sql);
-        if(totalAmount == 0) {
-            calculateTotalAmount();
-        }
+        calculateTotalAmount();
 
         req.setAttribute("productCart", productCart);
         if(totalAmount > 0) {
@@ -43,5 +55,18 @@ public class ProductCartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.getServletContext();
+        // remove from product cart
+        String productInCart = req.getParameter("remove-from-cart");
+        if(productInCart != null && !productInCart.isEmpty()) {
+            boolean isInCart = removeProductFromCart(productInCart);
+            calculateTotalAmount();
+            ProductService productService = new ProductService();
+            productService.updateProductIsInCart(isInCart, productInCart);
+            req.setAttribute("productCart", productCart);
+            resp.sendRedirect("/app/product-cart");
+            return;
+        }
+        super.doPost(req, resp);
     }
 }
