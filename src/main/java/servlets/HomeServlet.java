@@ -42,6 +42,8 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        // check userId in session
+        // if not that user in session -> login, otherwise show homepage
 
         // load data from db
         ProductService productService = new ProductService();
