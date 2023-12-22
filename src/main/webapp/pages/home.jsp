@@ -74,7 +74,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
     .card {
         width: 300px;
@@ -150,6 +150,7 @@
                 <a href="/app/product-cart">Cart</a>
             </div>
         </header>
+        <h1>Hello, ${user.login}</h1>
         <form class="create-product" method="post">
             <label for="name">
                 Product name:<br>

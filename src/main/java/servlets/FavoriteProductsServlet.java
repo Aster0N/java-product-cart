@@ -44,12 +44,13 @@ public class FavoriteProductsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getServletContext();
+        String userUId = (String) req.getSession().getAttribute("user_id");
         // remove from favorite
         String favoriteProduct = req.getParameter("remove-from-favorite");
         if(favoriteProduct != null && !favoriteProduct.isEmpty()) {
             boolean isFavorite = removeProductFromFavorite(favoriteProduct);
             ProductService productService = new ProductService();
-            productService.updateProductBooleanFieldById("is_favorite", isFavorite, favoriteProduct);
+            productService.updateProductBooleanFieldById("is_favorite", isFavorite, favoriteProduct, userUId);
             req.setAttribute("favoriteProductList", favoriteProductList);
             resp.sendRedirect("/app/favorite");
             return;

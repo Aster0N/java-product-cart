@@ -62,14 +62,14 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getServletContext();
+        String userUId = (String) req.getSession().getAttribute("user_id");
         // add/remove from favorite
         String favoriteProduct = req.getParameter("add-to-favorite");
         if(favoriteProduct != null && !favoriteProduct.isEmpty()) {
             // change is_favorite state on client
             boolean isFavorite = addProductToFavorite(favoriteProduct);
             ProductService productService = new ProductService();
-            productService.updateProductBooleanFieldById("is_favorite", isFavorite, favoriteProduct);
-            req.setAttribute("productList", productList);
+            productService.updateProductBooleanFieldById("is_favorite", isFavorite, favoriteProduct, userUId);
             resp.sendRedirect("/app/");
             return;
         }
@@ -80,8 +80,7 @@ public class HomeServlet extends HttpServlet {
             // change is_in_cart on client
             boolean isInCart = addProductToCart(productToCart);
             ProductService productService = new ProductService();
-            productService.updateProductBooleanFieldById("is_in_cart", isInCart, productToCart);
-            req.setAttribute("productList", productList);
+            productService.updateProductBooleanFieldById("is_in_cart", isInCart, productToCart, userUId);
             resp.sendRedirect("/app/");
             return;
         }
@@ -91,7 +90,6 @@ public class HomeServlet extends HttpServlet {
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));
 
-        String userUId = (String) req.getSession().getAttribute("user_id");
         Product newProduct = new Product(productName, productDescription, productPrice, userUId);
         productList.add(newProduct);
         ProductService productService = new ProductService();

@@ -75,9 +75,10 @@ public class ProductService {
             System.out.println("DB update(insert) error");
         }
     }
-    public void updateProductBooleanFieldById(String fieldName, boolean fieldValue, String uId) {
+    public void updateProductBooleanFieldById(String fieldName, boolean fieldValue, String uId, String userUId) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "update product_list set " + fieldName + "=" + fieldValue + " where uid='" + uId + "';";
+        String sql = "update product_list set " + fieldName + "=" + fieldValue + ", " +
+                "user_uid='" + userUId + "' where uid='" + uId + "';";
 
         if(dbService.update(sql)) {
             System.out.println("Product "+ uId + " " + fieldName + " changed successfully");

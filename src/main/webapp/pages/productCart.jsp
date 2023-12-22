@@ -37,7 +37,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
         .card {
             width: 300px;

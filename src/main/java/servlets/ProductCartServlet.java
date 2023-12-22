@@ -58,13 +58,14 @@ public class ProductCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getServletContext();
+        String userUId = (String) req.getSession().getAttribute("user_id");
         // remove from product cart
         String productInCart = req.getParameter("remove-from-cart");
         if(productInCart != null && !productInCart.isEmpty()) {
             boolean isInCart = removeProductFromCart(productInCart);
             calculateTotalAmount();
             ProductService productService = new ProductService();
-            productService.updateProductBooleanFieldById("is_in_cart", isInCart, productInCart);
+            productService.updateProductBooleanFieldById("is_in_cart", isInCart, productInCart, userUId);
             req.setAttribute("productCart", productCart);
             resp.sendRedirect("/app/product-cart");
             return;
