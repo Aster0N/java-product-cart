@@ -37,7 +37,7 @@ public class ProductService {
         List<Product> products = new ArrayList<Product>();
 
         DatabaseService dbService = new DatabaseService();
-        String sql = "select * from product_list where user_uid='"+ userUId + "';";
+        String sql = "select * from product_list where user_uid='"+ userUId + "' or user_uid='all';";
         ResultSet resultSet = dbService.select(sql);
         try {
             while (resultSet.next()) {
@@ -61,12 +61,13 @@ public class ProductService {
 
     public void addProduct(Product product) {
         DatabaseService dbService = new DatabaseService();
-        String sql = "insert into product_list (uid, name, description, is_favorite, price) values ('"
+        String sql = "insert into product_list (uid, name, description, is_favorite, price, user_uid) values ('"
                 + product.getUId() + "','"
                 + product.getName() + "','"
                 + product.getDescription() + "',"
                 + product.getIsFavorite() + ",'"
-                + product.getPrice() + "');";
+                + product.getPrice() + "', '"
+                + product.getUserUId() + "');";
 
         if(dbService.update(sql)) {
             System.out.println("Data inserted successfully");
