@@ -4,6 +4,7 @@ import classes.Product;
 import services.db.DatabaseService;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
@@ -75,6 +76,18 @@ public class ProductService {
             System.out.println("DB update(insert) error");
         }
     }
+
+    public void deleteProduct(String productToDelete) {
+        DatabaseService dbService = new DatabaseService();
+        String sql = "delete from product_list where uid='" + productToDelete + "';";
+
+        if(dbService.update(sql)) {
+            System.out.println("Product "+ productToDelete + " deleted successfully");
+        } else {
+            System.out.println("DB product "+ productToDelete +" delete error");
+        }
+    }
+
     public void updateProductBooleanFieldById(String fieldName, boolean fieldValue, String uId, String userUId) {
         DatabaseService dbService = new DatabaseService();
         String sql = "update product_list set " + fieldName + "=" + fieldValue + ", " +

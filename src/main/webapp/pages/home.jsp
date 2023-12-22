@@ -123,6 +123,11 @@
         justify-content: space-between;
         align-items: center;
     }
+    .product-card-actions {
+        display: flex;
+        gap: 5px;
+    }
+    .delete-btn,
     .order-btn {
         padding: 5px 10px;
         text-transform: uppercase;
@@ -132,6 +137,9 @@
         outline: none;
         color: #ecf0f1;
         cursor: pointer;
+    }
+    .delete-btn:hover {
+        background-color: #ff7979;
     }
     .order-btn.order-btn-active,
     .order-btn:hover {
@@ -184,12 +192,17 @@
                     </div>
                     <div class="card-price">
                         <p><strong>Price: </strong>${product.getPrice()}</p>
-                        <form method="post" action="/app/?add-to-cart=${product.getUId()}">
-                            <button class="order-btn <c:if test="${product.getIsInCart()}">order-btn-active</c:if>">
+                        <div class="product-card-actions">
+                            <form method="post" action="/app/?delete-product=${product.getUId()}">
+                                <button type="submit" class="delete-btn">delete</button>
+                            </form>
+                            <form method="post" action="/app/?add-to-cart=${product.getUId()}">
+                                <button class="order-btn <c:if test="${product.getIsInCart()}">order-btn-active</c:if>">
                                 <c:if test="${product.getIsInCart()}">ordered</c:if>
                                 <c:if test="${not product.getIsInCart()}">order</c:if>
-                            </button>
-                        </form>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </c:forEach>

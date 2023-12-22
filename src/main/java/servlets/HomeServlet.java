@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -81,6 +82,15 @@ public class HomeServlet extends HttpServlet {
             boolean isInCart = addProductToCart(productToCart);
             ProductService productService = new ProductService();
             productService.updateProductBooleanFieldById("is_in_cart", isInCart, productToCart, userUId);
+            resp.sendRedirect("/app/");
+            return;
+        }
+
+        // delete from product_list
+        String productToDelete = req.getParameter("delete-product");
+        if(productToDelete != null && !productToDelete.isEmpty()) {
+            ProductService productService = new ProductService();
+            productService.deleteProduct(productToDelete);
             resp.sendRedirect("/app/");
             return;
         }
