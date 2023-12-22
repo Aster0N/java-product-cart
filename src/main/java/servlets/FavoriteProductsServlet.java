@@ -29,7 +29,9 @@ public class FavoriteProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String sql = "SELECT pl.* FROM favorite_products fp JOIN product_list pl ON fp.product_id = pl.id;";
+        String userUId = (String) req.getSession().getAttribute("user_id");
+        String sql = "SELECT pl.* FROM favorite_products fp JOIN product_list pl ON fp.product_id = pl.id " +
+                     "WHERE pl.user_uid='" + userUId + "';";
         // load data from db
         ProductService productService = new ProductService();
         favoriteProductList = productService.loadProductListFromDB(sql);
