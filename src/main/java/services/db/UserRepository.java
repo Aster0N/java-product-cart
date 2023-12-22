@@ -13,7 +13,7 @@ public class UserRepository {
 
     public int getUserIdByUsernameAndPassword(String login, String password) {
         Connection conn = dataBaseService.getConnect();
-        int userId=-1;
+        int userId = -1;
         try {
             String sql = "select id from users where login = " + login + " and password = " + password + ";";
             PreparedStatement statement = conn.prepareStatement(sql);

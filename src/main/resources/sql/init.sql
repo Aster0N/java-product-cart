@@ -1,11 +1,11 @@
 -- create table users
-CREATE TABLE IF NOT EXISTS product_list (
+CREATE TABLE IF NOT EXISTS users (
     id serial PRIMARY KEY,
     uid VARCHAR(255) NOT NULL,
     login VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
-INSERT INTO employees (login, password) VALUES ('admin', 'admin') ON CONFLICT (login) DO NOTHING;
+INSERT INTO users (uid, login, password) VALUES ('admin#1', 'admin', 'admin');
 
 -- create table product_list
 CREATE TABLE IF NOT EXISTS product_list (

@@ -17,6 +17,11 @@
         a, button {
             cursor: pointer;
         }
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 0 0 40px 0;
+        }
         body, html {
             padding: 0;
             margin: 0;
@@ -42,14 +47,27 @@
             outline: 2px solid #fff;
             border-radius: 5px;
         }
+        .sign-in-btn {
+            padding: 10px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
-    <h1>Login page</h1>
-    <form action="/login" method="post">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <button type="submit">sign in</button>
-    </form>
+    <div class="wrapper">
+        <h1>Login</h1>
+        <p>> Please, sign in before you get started :D</p>
+        <form action="/login" method="post">
+            <label for="username-input">Username:</label><br>
+            <input required id="username-input" type="text" name="username">
+            <br>
+            <label for="password-input">Password:</label><br>
+            <input required id="password-input" type="password" name="password">
+            <br>
+            <button class="sign-in-btn" type="submit">sign in</button>
+            <p>Not a member? <a href="/app/register">Sign up</a></p>
+        </form>
+    </div>
 </body>
 </html>
