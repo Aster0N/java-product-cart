@@ -1,5 +1,7 @@
 package servlets;
 
+import services.LoginService;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +16,20 @@ public class LoginServlet  extends HttpServlet {
         resp.setContentType("text/html");
         super.doGet(req, resp);
     }
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(req, resp);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        LoginService loginService = new LoginService();
+        int userId = loginService.auth(username, password);
+        if (userId != -1) {
+            request.getSession().setAttribute("user_id", userId);
+            response.sendRedirect( "/dashboard");
+        } else {
+            request.setAttribute("errorMessage", "error login or pass");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            super.doPost(request, response);
+        }
     }
 }
