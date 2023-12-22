@@ -11,19 +11,19 @@ public class UserService {
         this.dataBaseService = new DatabaseService();
     }
 
-    public int getUserIdByUsernameAndPassword(String login, String password) {
+    public String getUserIdByUsernameAndPassword(String login, String password) {
         Connection conn = dataBaseService.getConnect();
-        int userId = -1;
+        String userUId = "";
         try {
-            String sql = "select id from users where login = " + login + " and password = " + password + ";";
+            String sql = "select id from users where login = '" + login + "' and password = '" + password + "';";
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                userId = resultSet.getInt("id");
+                userUId = resultSet.getString("uid");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return userId;
+        return userUId;
     }
 }

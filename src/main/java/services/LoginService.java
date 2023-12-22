@@ -25,7 +25,7 @@ public class LoginService {
         return hashInt.toString(16);
     }
 
-    public int auth(String username, String password) {
+    public String login(String username, String password) {
         String hashedPassword = hashPassword(password);
         return userRepository.getUserIdByUsernameAndPassword(username, hashedPassword);
     }

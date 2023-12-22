@@ -22,13 +22,12 @@ public class LoginServlet  extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         LoginService loginService = new LoginService();
-        int userId = loginService.auth(username, password);
-        if (userId != -1) {
-            request.getSession().setAttribute("user_id", userId);
-            response.sendRedirect( "/dashboard");
+        String userUId = loginService.login(username, password);
+        if (!userUId.isEmpty()) {
+            request.getSession().setAttribute("user_id", userUId);
+            response.sendRedirect( "/app/");
         } else {
-            request.setAttribute("errorMessage", "error login or pass");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/app/login").forward(request, response);
             super.doPost(request, response);
         }
     }
