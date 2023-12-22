@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserRepository {
+public class UserService {
     private final DatabaseService dataBaseService;
-    public UserRepository() {
+    public UserService() {
         this.dataBaseService = new DatabaseService();
     }
 

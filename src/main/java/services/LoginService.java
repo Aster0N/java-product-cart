@@ -1,16 +1,16 @@
 package services;
 
-import services.db.UserRepository;
+import services.db.UserService;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class LoginService {
-    private final UserRepository userRepository;
+    private final UserService userRepository;
 
     public LoginService() {
-        this.userRepository = new UserRepository();
+        this.userRepository = new UserService();
     }
 
     public String hashPassword(String password) {
