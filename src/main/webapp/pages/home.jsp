@@ -75,7 +75,6 @@
         flex-wrap: wrap;
         gap: 10px;
         justify-content: space-between;
-        flex-direction: row-reverse;
     }
     .card {
         width: 300px;

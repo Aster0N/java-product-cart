@@ -37,8 +37,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: flex-end;
-            flex-direction: row-reverse;
+            justify-content: space-between;
         }
         .card {
             width: 300px;

@@ -17,6 +17,13 @@ public class Product {
         this.description = description;
         this.price = price;
     }
+    public Product(String name, String description, float price, String userUId) {
+        this.uId = UUID.randomUUID().toString();
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.userUId = userUId;
+    }
     public Product(String uId, String name, String description, boolean isFavorite, boolean isInCart, float price,
                    String userUId) {
         this.uId = uId;

@@ -49,7 +49,7 @@ public class HomeServlet extends HttpServlet {
 
         String userUId = (String) req.getSession().getAttribute("user_id");
         User user = userService.getUserByUId(userUId);
-        List<Product> productList = productService.getUserProductListByUId(userUId);
+        productList = productService.getUserProductListByUId(userUId);
 
         req.setAttribute("user", user);
         req.setAttribute("productList", productList);
@@ -91,7 +91,8 @@ public class HomeServlet extends HttpServlet {
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));
 
-        Product newProduct = new Product(productName, productDescription, productPrice);
+        String userUId = (String) req.getSession().getAttribute("user_id");
+        Product newProduct = new Product(productName, productDescription, productPrice, userUId);
         productList.add(newProduct);
         ProductService productService = new ProductService();
         productService.addProduct(newProduct);
