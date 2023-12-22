@@ -19,16 +19,17 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.getServletContext();
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         AuthService authService = new AuthService();
         String userUId = authService.signIn(login, password);
         if (!userUId.isEmpty()) {
             request.getSession().setAttribute("user_id", userUId);
-            response.sendRedirect( "/app/");
+            response.sendRedirect("/app/");
         } else {
-            System.out.println("[AUTH_USER_ERROR]: Login or password error");
-            request.getRequestDispatcher("/app/login").forward(request, response);
+            System.out.println("[SIGH_IN_USER_ERROR]: This user is not registered");
+            request.getRequestDispatcher("/login").forward(request, response);
             super.doPost(request, response);
         }
     }

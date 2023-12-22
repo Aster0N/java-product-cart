@@ -58,9 +58,9 @@
     <div class="wrapper">
         <h1>Login</h1>
         <p>> Please, sign in before you get started :D</p>
-        <form action="/login" method="post">
+        <form method="post">
             <label for="username-input">Login:</label><br>
-            <input placeholder="login" required id="username-input" type="text" name="username">
+            <input placeholder="login" required id="username-input" type="text" name="login">
             <br>
             <label for="password-input">Password:</label><br>
             <input placeholder="password" required id="password-input" type="password" name="password">

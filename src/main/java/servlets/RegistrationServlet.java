@@ -20,23 +20,23 @@ public class RegistrationServlet  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.getServletContext();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String passwordConfirmation = req.getParameter("password-confirmation");
 
         if(!Objects.equals(password, passwordConfirmation)) {
-            req.getRequestDispatcher("/app/register").forward(req, resp);
-            return;
+            resp.sendRedirect("/app/register");
         }
 
         AuthService authService = new AuthService();
         String userUId = authService.signUp(login, password);
-        if (!Objects.equals(userUId, "")) {
+        if (!userUId.isEmpty()) {
             req.getSession().setAttribute("user_id", userUId);
             resp.sendRedirect( "/app/");
         } else {
-            System.out.println("[AUTH_USER_ERROR]: User already exists");
-            req.getRequestDispatcher("/app/register").forward(req, resp);
+            System.out.println("[SIGN_UP_USER_ERROR]: User already exists");
+            req.getRequestDispatcher("/register").forward(req, resp);
             super.doPost(req, resp);
         }
         super.doPost(req, resp);

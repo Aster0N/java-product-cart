@@ -57,9 +57,9 @@
 <body>
 <div class="wrapper">
     <h1>Registration</h1>
-    <form action="/register" method="post">
+    <form method="post">
         <label for="username-input">Username:</label><br>
-        <input placeholder="login"  required id="username-input" type="text" name="username">
+        <input placeholder="login"  required id="username-input" type="text" name="login">
         <br>
         <label for="password-input">Password:</label><br>
         <input placeholder="password"  required id="password-input" type="password" name="password">

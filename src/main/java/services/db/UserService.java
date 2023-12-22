@@ -2,8 +2,6 @@ package services.db;
 
 import classes.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
@@ -13,7 +11,7 @@ public class UserService {
         DatabaseService dbService = new DatabaseService();
         String userUId = "";
         try {
-            String sql = "select id from users where login = '" + login + "' and password = '" + password + "';";
+            String sql = "select uid from users where login = '" + login + "' and password = '" + password + "';";
             ResultSet resultSet = dbService.select(sql);
             if (resultSet.next()) {
                 userUId = resultSet.getString("uid");

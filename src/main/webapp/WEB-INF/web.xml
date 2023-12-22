@@ -5,6 +5,15 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         version="3.0">
     <servlet>
+        <servlet-name>home</servlet-name>
+        <servlet-class>servlets.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>favoriteProductsServlet</servlet-name>
         <servlet-class>servlets.FavoriteProductsServlet</servlet-class>
     </servlet>
