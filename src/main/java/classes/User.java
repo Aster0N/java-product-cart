@@ -1,17 +1,17 @@
 package classes;
 
 public class User {
-    private int uId;
+    private String uId;
     private String login;
     private String password;
 
-    public User(int uId, String login, String password) {
+    public User(String uId, String login, String password) {
         this.uId = uId;
         this.login = login;
         this.password = password;
     }
 
-    public int getUId() {
+    public String getUId() {
         return uId;
     }
     public String getLogin() {
@@ -20,7 +20,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public void setUId(int uId) {
+    public void setUId(String uId) {
         this.uId = uId;
     }
     public void setLogin(String login) {

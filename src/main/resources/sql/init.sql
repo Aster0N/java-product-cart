@@ -10,7 +10,7 @@ INSERT INTO users (uid, login, password) VALUES ('admin#1', 'admin', 'admin');
 -- create table product_list
 CREATE TABLE IF NOT EXISTS product_list (
     id serial PRIMARY KEY,
-    userUId VARCHAR(255) NOT NULL,
+    user_uid VARCHAR(255) NOT NULL,
     uid VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),

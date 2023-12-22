@@ -22,7 +22,8 @@ public class ProductService {
                 boolean isFavorite = resultSet.getBoolean("is_favorite");
                 float price = resultSet.getFloat("price");
                 boolean isInCart = resultSet.getBoolean("is_in_cart");
-                Product product = new Product(uId, name, description, isFavorite, isInCart, price);
+                String userUId = resultSet.getString("user_uid");
+                Product product = new Product(uId, name, description, isFavorite, isInCart, price, userUId);
                 products.add(product);
             }
         } catch (SQLException throwables) {
@@ -31,6 +32,33 @@ public class ProductService {
 
         return products;
     }
+
+    public List<Product> getUserProductListByUId(String userUId) {
+        List<Product> products = new ArrayList<Product>();
+
+        DatabaseService dbService = new DatabaseService();
+        String sql = "select * from product_list where user_uid='"+ userUId + "';";
+        ResultSet resultSet = dbService.select(sql);
+        try {
+            while (resultSet.next()) {
+                Product product = new Product(
+                        resultSet.getString("uid"),
+                        resultSet.getString("name"),
+                        resultSet.getString("description"),
+                        resultSet.getBoolean("is_favorite"),
+                        resultSet.getBoolean("is_in_cart"),
+                        resultSet.getFloat("price"),
+                        resultSet.getString("user_uid")
+                );
+                products.add(product);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return products;
+    }
+
     public void addProduct(Product product) {
         DatabaseService dbService = new DatabaseService();
         String sql = "insert into product_list (uid, name, description, is_favorite, price) values ('"

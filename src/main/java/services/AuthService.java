@@ -6,11 +6,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class LoginService {
-    private final UserService userRepository;
+public class AuthService {
+    private final UserService userService;
 
-    public LoginService() {
-        this.userRepository = new UserService();
+    public AuthService() {
+        this.userService = new UserService();
     }
 
     public String hashPassword(String password) {
@@ -25,8 +25,16 @@ public class LoginService {
         return hashInt.toString(16);
     }
 
-    public String login(String username, String password) {
+    public String signIn(String login, String password) {
         String hashedPassword = hashPassword(password);
-        return userRepository.getUserIdByUsernameAndPassword(username, hashedPassword);
+        return userService.getUserIdByUsernameAndPassword(login, hashedPassword);
+    }
+
+    public String signUp(String login, String password) {
+        if (userService.isUserExistsByLogin(login)) {
+            return "";
+        }
+        String hashedPassword = hashPassword(password);
+        return userService.createUser(login, hashedPassword);
     }
 }

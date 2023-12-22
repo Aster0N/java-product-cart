@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import classes.User;
 import services.ProductService;
+import services.db.UserService;
 
 public class HomeServlet extends HttpServlet {
     private static List<Product> productList = new ArrayList<Product>();
@@ -42,19 +44,18 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // check userId in session
-        // if not that user in session -> login, otherwise show homepage
-
-        // load data from db
+        UserService userService = new UserService();
         ProductService productService = new ProductService();
-        String sql = "select * from product_list;";
-        productList = productService.loadProductListFromDB(sql);
 
+        String userUId = (String) req.getSession().getAttribute("user_id");
+        User user = userService.getUserByUId(userUId);
+        List<Product> productList = productService.getUserProductListByUId(userUId);
+
+        req.setAttribute("user", user);
         req.setAttribute("productList", productList);
 
         req.getRequestDispatcher("/pages/home.jsp").forward(req, resp);
         resp.setContentType("text/html");
-
         super.doGet(req, resp);
     }
     @Override

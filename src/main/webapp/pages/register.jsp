@@ -59,13 +59,14 @@
     <h1>Registration</h1>
     <form action="/register" method="post">
         <label for="username-input">Username:</label><br>
-        <input required id="username-input" type="text" name="username">
+        <input placeholder="login"  required id="username-input" type="text" name="username">
         <br>
         <label for="password-input">Password:</label><br>
-        <input required id="password-input" type="password" name="password">
+        <input placeholder="password"  required id="password-input" type="password" name="password">
         <br>
         <label for="password-confirm-input">Confirm your password:</label><br>
-        <input required id="password-confirm-input" type="password" name="password-confirmation">
+        <input placeholder="confirm your password" required id="password-confirm-input" type="password"
+               name="password-confirmation">
         <br>
         <button class="sign-up-btn" type="submit">sign up</button>
         <p>Already have an account? <a href="/app/login">Sign in</a></p>
