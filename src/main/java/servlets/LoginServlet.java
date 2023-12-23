@@ -28,8 +28,9 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user_id", userUId);
             response.sendRedirect("/app/");
         } else {
+            request.setAttribute("error", "This user is not registered");
             System.out.println("[SIGH_IN_USER_ERROR]: This user is not registered");
-            request.getRequestDispatcher("/login").forward(request, response);
+            request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
             super.doPost(request, response);
         }
     }

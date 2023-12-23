@@ -52,6 +52,9 @@
             font-size: 0.8rem;
             text-transform: uppercase;
         }
+        .error-message {
+            color: #ff7675;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +71,9 @@
             <button class="sign-in-btn" type="submit">sign in</button>
             <p>Not a member? <a href="/app/register">Sign up</a></p>
         </form>
+        <div class="error-message">
+            <p>${error}</p>
+        </div>
     </div>
 </body>
 </html>

@@ -35,8 +35,9 @@ public class RegistrationServlet  extends HttpServlet {
             req.getSession().setAttribute("user_id", userUId);
             resp.sendRedirect( "/app/");
         } else {
+            req.setAttribute("error", "This user already exists");
             System.out.println("[SIGN_UP_USER_ERROR]: User already exists");
-            resp.sendRedirect("/app/register");
+            req.getRequestDispatcher("/pages/register.jsp").forward(req, resp);
             super.doPost(req, resp);
         }
         super.doPost(req, resp);

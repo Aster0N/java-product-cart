@@ -97,6 +97,10 @@ public class HomeServlet extends HttpServlet {
 
         // create new product
         String productName = req.getParameter("name");
+        if(productName == null || productName.isEmpty()) {
+            resp.sendRedirect("/app/");
+            return;
+        }
         String productDescription = req.getParameter("description");
         float productPrice = Float.parseFloat(req.getParameter("price"));
 

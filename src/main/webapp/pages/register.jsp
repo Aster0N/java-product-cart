@@ -52,25 +52,31 @@
             font-size: 0.8rem;
             text-transform: uppercase;
         }
+        .error-message {
+            color: #ff7675;
+        }
     </style>
 </head>
 <body>
-<div class="wrapper">
-    <h1>Registration</h1>
-    <form method="post">
-        <label for="username-input">Username:</label><br>
-        <input placeholder="login"  required id="username-input" type="text" name="login">
-        <br>
-        <label for="password-input">Password:</label><br>
-        <input placeholder="password"  required id="password-input" type="password" name="password">
-        <br>
-        <label for="password-confirm-input">Confirm your password:</label><br>
-        <input placeholder="confirm your password" required id="password-confirm-input" type="password"
-               name="password-confirmation">
-        <br>
-        <button class="sign-up-btn" type="submit">sign up</button>
-        <p>Already have an account? <a href="/app/login">Sign in</a></p>
-    </form>
-</div>
+    <div class="wrapper">
+        <h1>Registration</h1>
+        <form method="post">
+            <label for="username-input">Username:</label><br>
+            <input placeholder="login"  required id="username-input" type="text" name="login">
+            <br>
+            <label for="password-input">Password:</label><br>
+            <input placeholder="password"  required id="password-input" type="password" name="password">
+            <br>
+            <label for="password-confirm-input">Confirm your password:</label><br>
+            <input placeholder="confirm your password" required id="password-confirm-input" type="password"
+                   name="password-confirmation">
+            <br>
+            <button class="sign-up-btn" type="submit">sign up</button>
+            <p>Already have an account? <a href="/app/login">Sign in</a></p>
+        </form>
+        <div class="error-message">
+            <p>${error}</p>
+        </div>
+    </div>
 </body>
 </html>
