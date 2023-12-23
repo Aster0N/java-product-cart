@@ -67,3 +67,10 @@ CREATE TRIGGER update_cart_trigger
 AFTER UPDATE ON product_list
 FOR EACH ROW
 EXECUTE FUNCTION update_cart();
+
+-- create order_history
+CREATE TABLE IF NOT EXISTS order_history (
+    id serial PRIMARY KEY,
+    product_id INTEGER REFERENCES product_list(id),
+    user_uid VARCHAR(255) NOT NULL
+);

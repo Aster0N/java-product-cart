@@ -70,6 +70,15 @@ public class ProductCartServlet extends HttpServlet {
             resp.sendRedirect("/app/product-cart");
             return;
         }
+
+        // make order
+        int productCartSize = Integer.parseInt(req.getParameter("make-order"));
+        if (productCartSize != 0) {
+            ProductService productService = new ProductService();
+            productService.orderProducts(productCart, userUId);
+            resp.sendRedirect("/app/order-history");
+            return;
+        }
         super.doPost(req, resp);
     }
 }

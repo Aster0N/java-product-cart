@@ -156,6 +156,8 @@
                 <a href="/app/favorite">Favorite products</a>
                 &nbsp;/&nbsp;
                 <a href="/app/product-cart">Cart</a>
+                /&nbsp;
+                <a href="/app/order-history">Order history</a>
             </div>
         </header>
         <h1>Hello, ${user.login}</h1>

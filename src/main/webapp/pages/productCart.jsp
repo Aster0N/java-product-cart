@@ -84,6 +84,9 @@
         <c:if test="${totalAmount > 0}">
             <h4>Total amount: ${totalAmount}$</h4>
         </c:if>
+        <form method="post" action="/app/product-cart?make-order=${productCart.size()}">
+            <button type="submit" class="make-order-btn">make order</button>
+        </form>
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productCart}">
                 <div class="card">

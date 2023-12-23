@@ -3,11 +3,11 @@ package services;
 import classes.Product;
 import services.db.DatabaseService;
 
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 
 public class ProductService {
     public List<Product> loadProductListFromDB(String sql) {
@@ -97,6 +97,32 @@ public class ProductService {
             System.out.println("Product "+ uId + " " + fieldName + " changed successfully");
         } else {
             System.out.println("DB update "+ fieldName +" error");
+        }
+    }
+
+    public void orderProducts(List<Product> products, String userUId) {
+        List<String> productIds = new ArrayList<String>();
+        DatabaseService dbService = new DatabaseService();
+        Connection conn = dbService.getConnect();
+
+        for (Product product : products) {
+            productIds.add(product.getUId());
+        }
+
+        try {
+            // remove products from product_cart
+            String sql = "update product_list set is_in_cart=false where uid = any(?);"+
+                        "insert into order_history " +
+                        "(product_id, user_uid) select id, user_uid from " +
+                        "product_list pl where pl.uid = any(?) and user_uid=?;";
+            PreparedStatement updateStatement = conn.prepareStatement(sql);
+            updateStatement.setArray(1, conn.createArrayOf("varchar", productIds.toArray()));
+            updateStatement.setArray(2, conn.createArrayOf("varchar", productIds.toArray()));
+            updateStatement.setString(3, userUId);
+            updateStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

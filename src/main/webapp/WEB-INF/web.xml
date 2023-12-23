@@ -48,4 +48,13 @@
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>orderHistory</servlet-name>
+        <servlet-class>servlets.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>orderHistory</servlet-name>
+        <url-pattern>/order-history</url-pattern>
+    </servlet-mapping>
 </web-app>
