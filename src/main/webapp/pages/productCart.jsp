@@ -75,6 +75,21 @@
             opacity: 1;
             pointer-events: all;
         }
+        .make-order-btn {
+            margin: 15px 0 0 0;
+            transition: all .2s ease-out;
+            cursor: pointer;
+            background-color: transparent;
+            text-transform: uppercase;
+            color: #ecf0f1;
+            border: 1px solid #ecf0f1;
+            padding: 5px;
+        }
+        .make-order-btn:hover {
+            background-color: #ecf0f1;
+            color: #2d3436;
+        }
+
     </style>
 </head>
 <body>
@@ -84,9 +99,11 @@
         <c:if test="${totalAmount > 0}">
             <h4>Total amount: ${totalAmount}$</h4>
         </c:if>
-        <form method="post" action="/app/product-cart?make-order=${productCart.size()}">
-            <button type="submit" class="make-order-btn">make order</button>
-        </form>
+        <c:if test="${productCart.size() > 0}">
+            <form method="post" action="/app/product-cart?make-order=${productCart.size()}">
+                <button type="submit" class="make-order-btn">make order</button>
+            </form>
+        </c:if>
         <div class="cards-wrapper">
             <c:forEach var="product" items="${productCart}">
                 <div class="card">
