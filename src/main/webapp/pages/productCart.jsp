@@ -12,6 +12,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>product cart</title>
     <style>
+        @media screen and (min-width: 1101px) {
+            .wrapper {
+                width: 1000px;
+                padding: 0 0 40px 0;
+                margin: 0 auto;
+            }
+            .card {
+                width: 300px;
+            }
+        }
+        @media screen and (max-width: 1100px) {
+            .wrapper {
+                width: 800px;
+                padding: 0 0 20px 0;
+                margin: 0 auto;
+            }
+            .cards-wrapper {
+                justify-content: space-between;
+            }
+            .card {
+                width: 350px;
+            }
+        }
+        @media screen and (max-width: 850px) {
+            .wrapper {
+                width: 100%;
+                padding: 0 30px;
+                margin: 0;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+        * {
+            box-sizing: border-box;
+        }
         a {
             color: #74b9ff;
             text-decoration: none;
@@ -27,20 +63,13 @@
             background-color: #2d3436;
             color: #ecf0f1;
         }
-        .wrapper {
-            width: 1000px;
-            margin: 0 auto;
-            padding: 0 0 40px 0;
-        }
         .cards-wrapper {
             margin: 10px 0 0 0;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: flex-start;
         }
         .card {
-            width: 300px;
             padding: 10px;
             border: 1px solid grey;
             display: flex;

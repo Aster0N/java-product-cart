@@ -12,6 +12,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>order history</title>
     <style>
+        @media screen and (min-width: 1101px) {
+            .wrapper {
+                width: 1000px;
+                padding: 0 0 40px 0;
+                margin: 0 auto;
+            }
+        }
+        @media screen and (max-width: 1100px) {
+            .wrapper {
+                width: 800px;
+                padding: 0 0 20px 0;
+                margin: 0 auto;
+            }
+        }
+        @media screen and (max-width: 850px) {
+            .wrapper {
+                width: 100%;
+                padding: 0 30px;
+                margin: 0;
+            }
+        }
+        * {
+            box-sizing: border-box;
+        }
         a {
             color: #74b9ff;
             text-decoration: none;
@@ -26,11 +50,6 @@
             font-family: sans-serif;
             background-color: #2d3436;
             color: #ecf0f1;
-        }
-        .wrapper {
-            width: 1000px;
-            margin: 0 auto;
-            padding: 0 0 40px 0;
         }
         .cards-wrapper {
             margin: 10px 0 0 0;
